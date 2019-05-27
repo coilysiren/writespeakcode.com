@@ -79,6 +79,24 @@ collections:
         widget: 'text'
         required: false
 
+  - name: 'sponsorship_packages'
+    label: 'Sponsorship Packages'
+    label_singular: 'Sponsorship Package'
+    identifier_field: name
+    folder: 'content/sponsorship_packages'
+    editor:
+      preview: false
+    fields:
+      - label: 'Name'
+        name: 'name'
+        widget: 'string'
+        required: true
+      - label: 'Type'
+        name: 'type'
+        widget: 'select'
+        options: ['conference', 'event']
+        required: true
+
   - name: 'sponsors'
     label: 'Sponsors'
     identifier_field: company
@@ -88,6 +106,8 @@ collections:
     create: true
     folder: 'content/sponsors'
     extension: 'json'
+    editor:
+      preview: false
     fields:
       - label: 'Company'
         name: 'company'
@@ -105,29 +125,19 @@ collections:
         name: 'company_text'
         widget: 'text'
         required: false
-      - label: 'Years'
-        name: 'years'
+      - label: 'Sponsorships'
+        name: 'sponsorships'
         widget: 'list'
         fields:
           - { label: Year, name: year, widget: string, default: '2019' }
-          - label: 'Levels'
-            name: 'levels'
-            widget: 'select'
+          - label: 'Package(s)'
+            name: 'packages'
+            widget: 'relation'
+            collection: 'sponsorship_packages'
+            searchFields: ['name']
+            valueField: 'name'
+            displayFields: ['name', 'type']
             multiple: true
-            options:
-              [
-                'Platinum',
-                'Gold',
-                'Silver',
-                'Bronze',
-                'Workshops',
-                'Lanyard',
-                'Breakout',
-                'Childcare',
-                'Accessibility',
-                'Headshot',
-                'Local Meetup',
-              ]
 
   - name: 'testimonials'
     label: 'Testimonials'
