@@ -6,7 +6,7 @@ jobs:
       - image: lynncyrin/base-image
     steps:
       - checkout
-      - npm audit --audit-level=moderate
-      - npm run flow
-      - npm run prettier
-      - npm run build
+      - RUN: npm audit --audit-level=moderate
+      - RUN: npm run flow
+      - RUN: npm run prettier
+      - RUN: npm run build
