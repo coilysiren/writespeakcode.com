@@ -1,8 +1,0 @@
-{
-  "name": "Atlassian",
-  "url": "https://www.atlassian.com/",
-  "logo": "/images/atlassian.svg",
-  "sponsorships": [
-    { "year": "2019", "level": "Private Workshops", "conf_sponsor": false }
-  ]
-}

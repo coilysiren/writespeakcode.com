@@ -1,0 +1,12 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: lynncyrin/base-image
+    steps:
+      - checkout
+      - npm audit --audit-level=moderate
+      - npm run flow
+      - npm run prettier
+      - npm run build
