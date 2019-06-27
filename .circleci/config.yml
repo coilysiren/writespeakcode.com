@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: lynncyrin/base-image:node
+      - image: circleci/node
     steps:
       - checkout
       - RUN: npm ci
